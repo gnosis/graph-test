@@ -1,0 +1,26 @@
+specVersion: 0.0.2
+description: Sample subgraph for testing.
+repository: https://github.com/gnosis/graph-test
+
+schema:
+  file: ./schema.graphql
+
+dataSources:
+  - kind: ethereum/contract
+    name: Sample
+    network: mainnet
+    source:
+      address: '0x4242424242424242424242424242424242424242'
+      abi: Sample
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/index.ts
+      abis:
+        - name: Sample
+          file: ./abis/Sample.json
+      entities: []
+      eventHandlers:
+        - event: Event()
+          handler: unimplemented
